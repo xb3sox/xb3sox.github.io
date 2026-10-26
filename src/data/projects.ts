@@ -15,14 +15,14 @@ export const projects: Project[] = [
     name: 'Rseed',
     arabic: 'رصيد',
     alias: 'Mizan',
-    description: 'An honest Saudi money ledger that reconciles transfers and card payments, preventing double-counting.',
+    description: 'A Saudi money ledger that reconciles transfers and card payments without double-counting.',
     status: 'Planned launch',
   },
   {
     id: 'dmcloser',
     number: '02',
     name: 'DMCloser',
-    description: 'A bilingual AI inbox that turns Instagram and WhatsApp inquiries into qualified, traceable opportunities.',
+    description: 'A bilingual AI inbox that qualifies and tracks Instagram and WhatsApp inquiries.',
     status: 'Planned launch',
   },
   {
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     id: 'nextjob',
     number: '04',
     name: 'NextJob',
-    description: 'An AI career agent that finds roles, strengthens applications, and learns what earns interviews.',
+    description: 'An AI career agent that finds roles and tailors each job application.',
     status: 'Planned launch',
   },
   {

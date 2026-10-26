@@ -108,6 +108,9 @@
 
     .primary-nav { display: flex; align-items: center; gap: clamp(20px, 3vw, 38px); }
     .primary-nav a {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
       color: var(--ink-soft);
       font-size: .84rem;
       font-weight: 550;
@@ -280,7 +283,6 @@
       background: rgba(251, 251, 247, .86);
       transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
     }
-    .project-card:hover { transform: translateY(-3px); border-color: rgba(19, 33, 28, .24); box-shadow: 0 18px 40px rgba(19, 33, 28, .07); }
     .project-card--featured {
       display: grid;
       min-height: 290px;
@@ -381,7 +383,7 @@
       font-size: .75rem;
     }
     .footer-socials { display: flex; flex-wrap: wrap; gap: 19px; }
-    .footer-socials a { color: var(--ink-soft); font-weight: 650; text-decoration: none; }
+    .footer-socials a { display: inline-flex; min-height: 36px; align-items: center; color: var(--ink-soft); font-weight: 650; text-decoration: none; }
     .footer-socials a:hover { color: #537a20; }
 
     @media (max-width: 850px) {

@@ -1,0 +1,12 @@
+exclude:
+  - .github/
+  - .astro/
+  - dist/
+  - node_modules/
+  - scripts/
+  - src/
+  - astro.config.mjs
+  - package.json
+  - package-lock.json
+  - tsconfig.json
+  - README.md

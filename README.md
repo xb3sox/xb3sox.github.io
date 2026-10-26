@@ -1,6 +1,6 @@
 # Basem Sufan — personal site
 
-Astro 6 + TypeScript, rendered as static HTML with no client-side JavaScript.
+Astro 7 + TypeScript, rendered as static HTML with no client-side JavaScript. Requires Node.js 22.23.4 or newer.
 
 ```sh
 npm ci

@@ -23,4 +23,4 @@ jobs:
       - run: npm ci
       - run: npx astro telemetry disable
       - run: npm run build
-      - run: git diff --exit-code -- index.html
+      - run: git diff --exit-code -- index.html robots.txt sitemap.xml og.png apple-touch-icon.png

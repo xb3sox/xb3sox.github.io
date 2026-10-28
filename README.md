@@ -9,4 +9,4 @@ npm run check
 npm run build
 ```
 
-Edit the source in `src/`. The build syncs the generated page to root `index.html` because GitHub Pages currently publishes from `main:/`. CI checks that generated file is committed and current.
+Edit the source in `src/`; static assets live in `public/`. The build syncs the generated page and its static assets (`index.html`, `robots.txt`, `sitemap.xml`, `og.png`, `apple-touch-icon.png`) to the repository root because GitHub Pages currently publishes from `main:/`. CI checks these generated files are committed and current.

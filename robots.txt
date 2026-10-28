@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xb3sox.github.io/sitemap.xml

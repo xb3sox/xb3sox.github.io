@@ -1,11 +1,13 @@
 :root {
-  color-scheme: light;
+  color-scheme: light dark;
+  --bg: #ffffff;
   --ink: #18211d;
   --body: #3f4943;
   --muted: #68736c;
   --line: #e5e9e6;
   --accent: #365442;
   --tint: #f4f7f5;
+  --sel: #dfe9e1;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,24 +17,22 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 24px; }
-body { min-width: 320px; margin: 0; background: #fff; color: var(--ink); font-size: 16px; line-height: 1.65; }
+body { min-width: 320px; margin: 0; background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.65; }
 /* Brand rule at the very top of the page */
 body::before { content: ""; display: block; height: 3px; background: var(--accent); }
 a { color: inherit; }
 a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
-::selection { background: #dfe9e1; color: var(--ink); }
+::selection { background: var(--sel); color: var(--ink); }
 
-.skip-link { position: absolute; top: 10px; left: 10px; z-index: 1; padding: 8px 12px; transform: translateY(-150%); background: var(--ink); color: #fff; text-decoration: none; }
+.skip-link { position: absolute; top: 10px; left: 10px; z-index: 1; padding: 8px 12px; transform: translateY(-150%); background: var(--ink); color: var(--bg); text-decoration: none; }
 .skip-link:focus { transform: translateY(0); }
 main:focus { outline: none; }
 .container { width: min(100% - 40px, 840px); margin-inline: auto; }
 
 .site-header { display: flex; min-height: 76px; align-items: center; justify-content: space-between; gap: 20px; border-bottom: 1px solid var(--line); }
 .brand { font-size: .98rem; font-weight: 700; letter-spacing: -.03em; text-decoration: none; }
-.brand:hover { color: var(--accent); }
 .primary-nav, .social-links { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; }
 .primary-nav a, .social-links a { display: inline-flex; min-height: 44px; align-items: center; color: var(--muted); font-size: .83rem; font-weight: 500; text-decoration: underline 1px; text-underline-offset: 6px; text-decoration-color: transparent; }
-.primary-nav a:hover, .social-links a:hover { color: var(--accent); text-decoration-color: currentColor; }
 
 .hero { position: relative; padding: 96px 0 88px; }
 /* Bilingual signature: oversized Ba, decorative only */
@@ -44,13 +44,9 @@ h1 span { color: var(--accent); }
 .intro { max-width: 610px; margin: 23px 0 0; color: var(--body); font-size: 1.08rem; text-wrap: pretty; }
 .hero-links { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 32px; align-items: center; }
 .text-link { display: inline-flex; min-height: 44px; align-items: center; gap: 7px; color: var(--accent); font-size: .9rem; font-weight: 600; text-decoration-thickness: 1px; text-underline-offset: 4px; }
-.text-link:hover { text-underline-offset: 7px; }
 /* Primary action: bordered pill that fills on hover */
 .cta { display: inline-flex; min-height: 44px; align-items: center; gap: 8px; padding: 10px 18px; border: 1px solid var(--accent); border-radius: 999px; background: transparent; color: var(--accent); font-size: .9rem; font-weight: 600; text-decoration: none; white-space: nowrap; }
-.cta:hover { background: var(--accent); color: #fff; }
 .arrow { display: inline-block; }
-.text-link:hover .arrow-down { transform: translateY(2px); }
-.text-link:hover .arrow-up, .cta:hover .arrow-up { transform: translate(2px, -2px); }
 
 .section { padding: 64px 0; border-top: 1px solid var(--line); }
 .section-heading { margin-bottom: 28px; }
@@ -88,6 +84,40 @@ h1 span { color: var(--accent); }
   .project-status { grid-column: 2; grid-row: 2; padding-top: 2px; }
   .contact { align-items: start; flex-direction: column; gap: 13px; }
   .site-footer { align-items: flex-start; flex-direction: column; gap: 6px; }
+}
+
+/* Dark scheme: same tokens, rebalanced; all text pairs >= 6.8:1 (verified) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #101512;
+    --ink: #e9ede9;
+    --body: #b9c3bb;
+    --muted: #94a098;
+    --line: #26302a;
+    --accent: #9ac2ab;
+    --tint: #1b231e;
+    --sel: #335045;
+  }
+  .hero-mark { opacity: .07; }
+}
+
+/* Keep hover rules pointer-capable only (see block below), motion rules follow */
+
+@media print {
+  body::before, .hero-mark, .skip-link, .primary-nav { display: none; }
+  body { background: #fff; color: #000; }
+  .cta { border-color: #000; color: #000; }
+  .project { break-inside: avoid; }
+}
+
+/* Hover only where a hover-capable pointer exists (never "stuck" on touch) */
+@media (hover: hover) {
+  .brand:hover { color: var(--accent); }
+  .primary-nav a:hover, .social-links a:hover { color: var(--accent); text-decoration-color: currentColor; }
+  .text-link:hover { text-underline-offset: 7px; }
+  .cta:hover { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+  .text-link:hover .arrow-down { transform: translateY(2px); }
+  .text-link:hover .arrow-up, .cta:hover .arrow-up { transform: translate(2px, -2px); }
 }
 
 @media (prefers-reduced-motion: reduce) {

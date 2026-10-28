@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "basem-sufan-ui",
+  "homepage": "https://xb3sox.github.io",
+  "items": [
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Astro-native button vendored from bejamas/ui (MIT). Variants themed via cn-* hooks in src/styles/ui.css.",
+      "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+      "files": [
+        { "path": "src/components/ui/Button.astro", "type": "registry:ui" },
+        { "path": "src/lib/utils.ts", "type": "registry:lib" }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Astro-native status badge vendored from bejamas/ui (MIT), pill shape used for venture status.",
+      "dependencies": ["class-variance-authority", "clsx", "tailwind-merge"],
+      "files": [
+        { "path": "src/components/ui/Badge.astro", "type": "registry:ui" },
+        { "path": "src/lib/utils.ts", "type": "registry:lib" }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Astro-native visual separator vendored from bejamas/ui (MIT), decorative aria-hidden.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        { "path": "src/components/ui/Separator.astro", "type": "registry:ui" },
+        { "path": "src/lib/utils.ts", "type": "registry:lib" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+/*
+ * Brand theme for the vendored UI components (src/components/ui/).
+ *
+ * The cn-* hook classes follow the bejamas/ui preset convention
+ * (github.com/bejamas/ui, MIT), which mirrors the shadcn/ui registry
+ * styling model: components own structure, themes own tokens.
+ * Values come from this site's palette (global.css tokens), light + dark.
+ *
+ * Only the variants/sizes this site renders are themed. Extend per the
+ * shadcn preset spec if more variants are adopted.
+ */
+
+/* MARK: Button */
+
+.cn-button {
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+}
+
+.cn-button-size-default {
+  min-height: 44px; /* touch target, not the 36px shadcn default */
+  padding: 10px 18px;
+  gap: 8px;
+}
+
+.cn-button-variant-default {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.cn-button-variant-outline {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: transparent;
+}
+
+.cn-button-variant-secondary {
+  background: var(--tint);
+  border-color: var(--line);
+  color: var(--accent);
+}
+
+.cn-button-variant-ghost {
+  color: var(--accent);
+  background: transparent;
+}
+
+/* MARK: Badge */
+
+.cn-badge {
+  border: 1px solid var(--line);
+  padding: 0 10px;
+  font-weight: 600;
+}
+
+.cn-badge-variant-default {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+
+.cn-badge-variant-secondary {
+  background: var(--tint);
+  color: var(--accent); /* 7.78:1 on tint, AAA */
+}
+
+.cn-badge-variant-outline {
+  background: transparent;
+  color: var(--accent);
+}
+
+/* MARK: Separator */
+
+.cn-separator {
+  background: var(--line);
+}
+
+.cn-separator-horizontal {
+  height: 1px;
+  width: 100%;
+}
+
+.cn-separator-vertical {
+  width: 1px;
+  height: 100%;
+}
+
+/* Motion discipline: registry components honor reduced motion too */
+@media (prefers-reduced-motion: reduce) {
+  [data-slot="button"],
+  [data-slot="badge"] {
+    transition: none;
+  }
+}
